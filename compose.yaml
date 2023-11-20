@@ -1,0 +1,12 @@
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: r12345!
+      MARIADB_USER: kostas
+      MARIADB_PASSWORD: u12345!
+      MARIADB_DATABASE: biodata
+    ports:
+      - 3306:3306
+    restart: unless-stopped
