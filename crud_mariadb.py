@@ -27,7 +27,13 @@ class BiodataAdmin:
 
     def create_table(self):
         sql_delete = "DROP TABLE IF EXISTS data"
-        sql = "CREATE TABLE data(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, seq varchar(100), typ varchar(100), etos varchar(4), organism varchar(100))"
+        sql = (
+            "CREATE TABLE data(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,"
+            " seq varchar(100),"
+            " typ varchar(100),"
+            " etos varchar(4),"
+            " organism varchar(100))"
+        )
         cursor = self.con.cursor()
         cursor.execute(sql_delete)
         cursor.execute(sql)

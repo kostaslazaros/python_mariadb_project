@@ -4,30 +4,10 @@ from crud_mariadb import BiodataAdmin
 
 # from crud_sqlite import BiodataAdmin
 
-
 dba = BiodataAdmin()
 
 
-def create_random_pleiada():
-    typ = random.choice(("RNA", "DNA"))
-    if typ == "RNA":
-        seq = "".join(random.choices("AUCG", k=10))
-    else:
-        seq = "".join(random.choices("ATCG", k=10))
-    etos = str(random.choice(list(range(2000, 2024))))
-    organism = random.choice(("Human", "Mouse"))
-    return {"seq": seq, "typ": typ, "etos": etos, "organism": organism}
-
-
-def print_menu():
-    print("1 Δημιουργία/Διαγραφή Πίνακα")
-    print("2 Εισαγωγή 10 πλειάδων")
-    print("3 Εισαγωγή νέας πλειάδας")
-    print("4 Διαγραφή όλων των πλειάδων")
-    print("5 Διαγραφή συγκεκριμένης πλειάδας")
-    print("6 Αναζήτηση με βάση το αναγνωριστικό")
-    print("7 Έξοδος")
-    print("")
+# Use cases
 
 
 def create_table():
@@ -90,10 +70,12 @@ def select():
     return True
 
 
-def exita():
+def exit_from_application():
     print("Έξοδος από την εφαρμογή. Καλή συνέχεια.")
     return False
 
+
+# End of use cases
 
 options = {
     "1": create_table,
@@ -102,8 +84,30 @@ options = {
     "4": delete_all,
     "5": delete,
     "6": select,
-    "7": exita,
+    "7": exit_from_application,
 }
+
+
+def create_random_pleiada():
+    typ = random.choice(("RNA", "DNA"))
+    if typ == "RNA":
+        seq = "".join(random.choices("AUCG", k=10))
+    else:
+        seq = "".join(random.choices("ATCG", k=10))
+    etos = str(random.choice(list(range(2000, 2024))))
+    organism = random.choice(("Human", "Mouse"))
+    return {"seq": seq, "typ": typ, "etos": etos, "organism": organism}
+
+
+def print_menu():
+    print("1 Δημιουργία/Διαγραφή Πίνακα")
+    print("2 Εισαγωγή 10 πλειάδων")
+    print("3 Εισαγωγή νέας πλειάδας")
+    print("4 Διαγραφή όλων των πλειάδων")
+    print("5 Διαγραφή συγκεκριμένης πλειάδας")
+    print("6 Αναζήτηση με βάση το αναγνωριστικό")
+    print("7 Έξοδος")
+    print("")
 
 
 def menu():
